@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "🎄 Advent of Code CLI tool",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "keywords": [
     "advent of code",
@@ -12,5 +12,8 @@
     "typescript"
   ],
   "author": "Mario Ferrero Fernández",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "4.4.3"
+  }
 }
