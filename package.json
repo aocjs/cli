@@ -4,7 +4,10 @@
   "description": "🎄 Advent of Code CLI tool",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "preversion": "npm run lint",
+    "version": "git add -A .",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "advent of code",
