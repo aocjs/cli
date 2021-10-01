@@ -11,6 +11,14 @@ export function builder (yargs: Argv): any {
 }
 
 export function handler (argv: object): void {
-  // TODO: start
-  console.log('🎈')
+  /**
+   * TODO:
+   * - validate argv.day as /day[0-9]+/i
+   * - save argv.day as /[0-9]+/ in process.env
+   * - create file if not exists
+   * - fetch data from server (just fetch)
+   * - execute nodemon
+   */
+
+  console.log('🎈', argv, JSON.parse(process.env.CONFIG ?? ''))
 }
