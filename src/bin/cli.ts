@@ -4,7 +4,7 @@ import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import { start } from './commands'
 import { getConfig } from '../lib'
-import { name, version } from '../../package.json'
+import { version } from '../../package.json'
 
 // eslint-disable-next-line no-void
 void yargs(hideBin(process.argv))
@@ -12,6 +12,6 @@ void yargs(hideBin(process.argv))
   .middleware(() => {
     process.env.CONFIG = JSON.stringify(getConfig())
   })
-  .scriptName(name)
+  .scriptName('aoc')
   .version(version)
   .help().argv
