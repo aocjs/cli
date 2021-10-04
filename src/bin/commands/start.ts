@@ -1,6 +1,6 @@
 import { Argv } from 'yargs'
 import { createTemplate } from '../../lib'
-// import fetch from '../../lib/data/fetch'
+import fetch from '../../lib/data/fetch'
 
 export const command = 'start <day>'
 
@@ -28,12 +28,12 @@ export function handler (argv: {day: string}): void {
     .then(() => {
       console.log('🎈🎇')
 
-      // fetch()
-      //   .then((res) => {
-      //     console.log(res.slice(0, 120))
-      //     process.env.DATA = JSON.stringify(res)
-      //   })
-      //   .catch((e) => console.log(e))
+      fetch()
+        .then((res) => {
+          console.log(res.slice(0, 120))
+          process.env.DATA = JSON.stringify(res)
+        })
+        .catch((e) => console.log(e))
     })
     .catch((e) => console.log(e))
 
