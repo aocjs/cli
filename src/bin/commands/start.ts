@@ -1,6 +1,8 @@
 import { Argv } from 'yargs'
+import { resolve } from 'path'
 import { createTemplate } from '../../lib'
 import fetch from '../../lib/data/fetch'
+import nodemon = require('nodemon')
 
 export const command = 'start <day>'
 
@@ -23,19 +25,39 @@ export function handler (argv: {day: string}): void {
    */
 
   process.env.DAY = argv.day
+  const { compiler } = JSON.parse(process.env.CONFIG ?? '')
 
   createTemplate()
     .then(() => {
-      console.log('🎈🎇')
-
       fetch()
         .then((res) => {
-          console.log(res.slice(0, 120))
           process.env.DATA = JSON.stringify(res)
+
+          // === Execution ===
+          const { exec, ext } =
+            compiler === 'js'
+              ? {
+                exec: 'node',
+                ext: 'js,mjs,txt'
+              }
+              : {
+                exec: 'ts-node',
+                ext: 'ts,txt'
+              }
+
+          nodemon({
+            // script: 'node_modules/@aocjs/cli/dist/src/lib/run.js',
+            script: resolve(__dirname, '../../lib/run.js'),
+            watch: ['data', 'src'],
+            exec,
+            ext
+          }).on('start', () => {
+            console.log(' ')
+          }).on('restart', () => {
+            console.clear()
+          })
         })
         .catch((e) => console.log(e))
     })
     .catch((e) => console.log(e))
-
-  console.log('🎈', argv, JSON.parse(process.env.CONFIG ?? ''))
 }
