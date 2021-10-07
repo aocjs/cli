@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "@aocjs/cli config definition",
+  "type": "object",
+  "properties": {
+    "year": {
+      "description": "Year you are currently solving",
+      "type": "integer",
+      "minimum": 2015
+    },
+    "compiler": {
+      "description": "Defines language used on generated templates",
+      "type": "string",
+      "pattern": "^(js|ts)$"
+    },
+    "session": {
+      "description": "Your personal session cookie from adventofcode.com. Required to fetch data.",
+      "type": "string"
+    }
+  }
+}
