@@ -16,7 +16,7 @@ export default async (): Promise<string[]> => {
     }
   )
 
-  if (response.ok === true) {
+  if (response.ok) {
     const text: string = await response.text()
 
     return text.split(/\r?\n/)
