@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'fs'
 
-const validFiles = ['.aocrc']
+const validFiles = ['.aocrc', '.aocrc.json']
 
 export class Config {
   public year: number =
