@@ -21,6 +21,8 @@
   ],
   "author": "Mario Ferrero Fernández",
   "license": "MIT",
+  "repository": "github:aocjs/cli",
+  "homepage": "https://aocjs.github.io/",
   "devDependencies": {
     "@types/node": "16.10.2",
     "@types/node-fetch": "2.5.12",
