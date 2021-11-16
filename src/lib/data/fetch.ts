@@ -19,7 +19,7 @@ export default async (): Promise<string[]> => {
   if (response.ok) {
     const text: string = await response.text()
 
-    return text.split(/\r?\n/)
+    return text.trim().split(/\r?\n/)
   }
   throw new Error(`Couldn't fetch data from https://adventofcode.com/${year}`)
 }
