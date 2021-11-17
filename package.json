@@ -36,5 +36,9 @@
     "node-fetch": "2.6.5",
     "nodemon": "^2.0.13",
     "yargs": "17.2.1"
-  }
+  },
+  "files": [
+    "templates/**/*",
+    "dist/**/*"
+  ]
 }
